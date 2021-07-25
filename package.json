@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3",
+    "ncrypt-js": "^2.0.0",
+    "puppeteer": "^10.1.0"
+  },
+  "name": "new-composite-api",
+  "version": "1.0.0",
+  "description": "An API that scrapes Stockbit equity information",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon"
+  },
+  "keywords": [
+    "API",
+    "stockbit",
+    "stocks",
+    "equity",
+    "express",
+    "javascript"
+  ],
+  "author": "Christian Harjuno (Sorata)",
+  "license": "ISC"
+}
