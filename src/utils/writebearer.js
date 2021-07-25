@@ -1,8 +1,9 @@
 const bearerschema = require("../schema/bearer.js")
-const { encrypt, decrypt } = require("ncrypt-js")
+const ncrypt = require("ncrypt-js")
 const key = process.env.KEY
+const ncryptObject = new ncrypt(key)
+
 module.exports = async(email, bearer) =>{
-  email = await encrypt(email, key)
   await bearerschema.findOneAndUpdate({
     email: email
   },{
@@ -12,6 +13,7 @@ module.exports = async(email, bearer) =>{
     upsert: true
   }).then((data, error)=>{
     if(data) return console.log("Success write")
+    console.log(error)
     return console.log("Error write")
   })
 }
