@@ -20,6 +20,6 @@ const PORT = process.env.PORT || 3000
 app.listen(PORT, async() => {
   console.log(`Currently listening on port ${PORT}`)
   await connectMongo()
-  await fetchbearer()
+  //await fetchbearer()
   console.log("Finished startup sequence.")
 })

@@ -1,9 +1,8 @@
 const express = require('express');
 const versionrouter = express.Router();
-const v1router = require("./v1/v1router.js")
-const missingparameters = require("./utils/missingparameters.js")
 
-versionrouter.get("/v1", missingparameters)
-versionrouter.use("/v1", v1router)
+
+versionrouter.get("/v1", require("./utils/missingparameters.js"))
+versionrouter.use("/v1", require("./v1/v1router.js"))
 
 module.exports =  versionrouter;

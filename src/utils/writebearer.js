@@ -4,6 +4,7 @@ const key = process.env.KEY
 const ncryptObject = new ncrypt(key)
 
 module.exports = async(email, bearer) =>{
+  bearer = ncryptObject.encrypt(bearer)
   await bearerschema.findOneAndUpdate({
     email: email
   },{
@@ -11,9 +12,10 @@ module.exports = async(email, bearer) =>{
     bearerToken: bearer
   },{
     upsert: true
-  }).then((data, error)=>{
-    if(data) return console.log("Success write")
-    console.log(error)
-    return console.log("Error write")
+  }).then(()=>{
+    return console.log("Successfully written new token")
+  }).catch(err =>{
+    console.log("Failed to write token")
   })
+  
 }
