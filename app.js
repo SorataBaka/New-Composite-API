@@ -10,7 +10,7 @@ require("dotenv").config()
 const versionrouter = require("./src/versionrouter.js")
 const connectMongo = require("./src/utils/connectmongo.js")
 const fetchbearer = require("./src/utils/fetchbearer.js")
-
+const writebearer = require("./src/utils/writebearer.js")
 
 const limiter = rateLimit({
   windowMs: 5 * 50 * 1000,
@@ -41,4 +41,8 @@ app.listen(PORT, async() => {
   await connectMongo()
   await fetchbearer()
   console.log("Finished startup sequence.")
+  setInterval(async function (){
+    await fetchbearer()
+    console.log("Successfully fetched new bearer token")
+  }, 8.64e+7)
 })
